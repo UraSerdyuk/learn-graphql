@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = 3005;
 
-mongoose.connect("mongodb+srv://testuser:testuser@cluster0-h5ob5.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://testuser:testuser@cluster0-h5ob5.mongodb.net/graphql-tutorial?retryWrites=true&w=majority",{ useNewUrlParser: true });
 
 app.use(
   `/graphql`,
@@ -17,6 +17,8 @@ app.use(
 );
 
 const dbConection = mongoose.connection;
+// dbConection.useDb('sample_airbnb?');
+
 dbConection.on('error',err=>console.log(`Connection error ${err}`));
 dbConection.once('open',()=>console.log('Connection to DB!'));
 
