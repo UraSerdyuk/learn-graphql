@@ -4,7 +4,7 @@ const Shema = mongoose.Schema;
 
 const directorShema = new Shema({
   name: String,
-  genre: String,
+  age: Number
 });
 
 module.exports = mongoose.model("Director", directorShema);
